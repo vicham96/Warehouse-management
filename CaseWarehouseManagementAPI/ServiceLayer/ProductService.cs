@@ -22,19 +22,21 @@ namespace CaseWarehouseManagementAPI.ServiceLayer
             return _mapper.Map<ProductReadDTO>(product);
         }
 
-        public IEnumerable<ProductReadDTO> GetProductsInStock(int limit, int productIndex)
+        public IEnumerable<Product> GetProductsInStock(int limit, int productIndex)
         {
-            IEnumerable<Product> products = _repo.GetProducts();
+            var products = _repo.GetProducts();
             //Get products in stock based on articles 
             var productsInStock = products.Where(
                 product => IsArticleInStock(product)
             );
-            var filteredProducts = products.ToList().GetRange(productIndex, limit); 
-            return _mapper.Map<IEnumerable<ProductReadDTO>>(products);
+            //var filteredProducts = products.ToList().GetRange(productIndex, limit); 
+            //var mappedProduct = _mapper.Map<IEnumerable<ProductReadDTO>>(filteredProducts);
+            //return _mapper.Map<IEnumerable<ProductReadDTO>>(filteredProducts);
+            return products; 
         }
         private Boolean IsArticleInStock(Product product)
         {
-            if (product.Articles.Count > 0)
+            if (product.Articles != null)
             {
                 return product.Articles.Find(a => !a.IsInStock) == null;
             }

@@ -8,6 +8,8 @@ namespace CaseWarehouseManagementAPI.Profiles
     {
         public ProductProfile()
         {
+            CreateMap<IEnumerable<Article>, IEnumerable<ArticleReadDTO>>();
+            CreateMap<Article, ArticleReadDTO>();
             CreateMap<Product, ProductReadDTO>();
         }
     }
