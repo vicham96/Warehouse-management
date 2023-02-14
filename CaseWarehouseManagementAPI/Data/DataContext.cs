@@ -1,6 +1,12 @@
-﻿namespace CaseWarehouseManagementAPI.Data
+﻿using CaseWarehouseManagementAPI.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace CaseWarehouseManagementAPI.Data
 {
-    public class DataContext
+    public class DataContext : DbContext
     {
+        public DataContext(DbContextOptions<DataContext> options) : base(options){}
+
+        public DbSet<Product> Products { get; set; }
     }
 }
