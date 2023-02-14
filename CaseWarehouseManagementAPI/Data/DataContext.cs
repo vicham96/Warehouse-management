@@ -8,5 +8,6 @@ namespace CaseWarehouseManagementAPI.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options){}
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Article> Articles { get; set; }
     }
 }

@@ -20,7 +20,7 @@ namespace CaseWarehouseManagementAPI.BusinessLogic
             var products = dataAccess.getProducts();
             //Get products in stock based on articles 
             var productsInStock = products.Where(
-                product => product.IsProductInStock()
+                product => true
                 );
             return productsInStock; 
         }
