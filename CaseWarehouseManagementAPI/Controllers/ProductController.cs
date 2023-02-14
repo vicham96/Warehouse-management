@@ -1,6 +1,7 @@
-﻿using CaseWarehouseManagementAPI.BusinessLogic;
-using CaseWarehouseManagementAPI.Data.Repositories;
+﻿using CaseWarehouseManagementAPI.Data.Repositories;
+using CaseWarehouseManagementAPI.DTO;
 using CaseWarehouseManagementAPI.Models;
+using CaseWarehouseManagementAPI.ServiceLayer;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,11 +12,11 @@ namespace CaseWarehouseManagementAPI.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductRepo _repo;
+        private readonly IProductService _service;
 
-        public ProductsController(IProductRepo repo)
+        public ProductsController(IProductService service)
         {
-            _repo = repo; 
+            _service = service; 
         }
         // GET: api/<WarehouseController>
         [HttpGet]
@@ -25,18 +26,14 @@ namespace CaseWarehouseManagementAPI.Controllers
             {
                 
             }
-            var businessLogic = new ProductBusinessLogic();
-            var products = businessLogic.GetProducts(pageSize, pageIndex);
-            return Ok(pageSize + " " + pageIndex); 
+            return Ok(_service.GetProductsInStock(pageSize, pageIndex)); 
         }
 
         // GET api/<WarehouseController>/5
         [HttpGet("{id}")]
-        public Product GetDetailedProduct(Guid id)
+        public ProductReadDTO GetDetailedProduct(int id)
         {
-            var businessLogic = new ProductBusinessLogic();
-            var product = businessLogic.GetDetailedProduct(id);
-            return product;
+            return _service.GetProduct(id); 
         }
 
         // POST api/<WarehouseController>

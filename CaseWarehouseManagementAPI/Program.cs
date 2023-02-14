@@ -1,6 +1,7 @@
 using CaseWarehouseManagementAPI.Data;
 using CaseWarehouseManagementAPI.Data.RepoImpl;
 using CaseWarehouseManagementAPI.Data.Repositories;
+using CaseWarehouseManagementAPI.ServiceLayer;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +13,9 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-builder.Services.AddScoped<IProductRepo, ProductRepo>(); 
+builder.Services.AddScoped<IProductRepo, ProductRepo>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

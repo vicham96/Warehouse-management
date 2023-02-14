@@ -4,7 +4,7 @@ namespace CaseWarehouseManagementAPI.Data.Repositories
 {
     public interface IArticleRepo
     {
-        IEnumerable<Article> GetProducts();
-        Article GetProductById(int articleId);
+        IEnumerable<Article> GetArticles();
+        Article GetArticleById(int articleId);
     }
 }
