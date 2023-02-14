@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Q3wF0B0NL58sRVUiJiPvtYLzTzCk2iGppKWxiNpFPCY=",
+  "Source": "CaseWarehouseManagementAPI",
+  "BasePath": "_content/CaseWarehouseManagementAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

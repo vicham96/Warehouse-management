@@ -1,0 +1,14 @@
+C:\Users\vicham\source\repos\CaseWarehouseManagement\bin\Debug\CaseWarehouseManagementAPI.deps.json
+C:\Users\vicham\source\repos\CaseWarehouseManagement\bin\Debug\CaseWarehouseManagementAPI.runtimeconfig.json
+C:\Users\vicham\source\repos\CaseWarehouseManagement\bin\Debug\appsettings.Development.json
+C:\Users\vicham\source\repos\CaseWarehouseManagement\bin\Debug\appsettings.json
+C:\Users\vicham\source\repos\CaseWarehouseManagement\bin\Debug\CaseWarehouseManagementAPI.exe
+C:\Users\vicham\source\repos\CaseWarehouseManagement\bin\Debug\CaseWarehouseManagementAPI.dll
+C:\Users\vicham\source\repos\CaseWarehouseManagement\bin\Debug\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\vicham\source\repos\CaseWarehouseManagement\bin\Debug\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\vicham\source\repos\CaseWarehouseManagement\bin\Debug\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\vicham\source\repos\CaseWarehouseManagement\bin\Debug\Microsoft.OpenApi.dll
+C:\Users\vicham\source\repos\CaseWarehouseManagement\bin\Debug\CaseWarehouseManagementAPI.pdb
+C:\Users\vicham\source\repos\CaseWarehouseManagement\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
+C:\Users\vicham\source\repos\CaseWarehouseManagement\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+C:\Users\vicham\source\repos\CaseWarehouseManagement\obj\Debug\docker-compose.dcproj.CopyComplete
