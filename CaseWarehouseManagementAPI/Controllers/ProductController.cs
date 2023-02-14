@@ -1,4 +1,5 @@
 ﻿using CaseWarehouseManagementAPI.BusinessLogic;
+using CaseWarehouseManagementAPI.Data.Repositories;
 using CaseWarehouseManagementAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,12 @@ namespace CaseWarehouseManagementAPI.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
+        private readonly IProductRepo _repo;
+
+        public ProductsController(IProductRepo repo)
+        {
+            _repo = repo; 
+        }
         // GET: api/<WarehouseController>
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] int pageSize, [FromQuery] int pageIndex)
