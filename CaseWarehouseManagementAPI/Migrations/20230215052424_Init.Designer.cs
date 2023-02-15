@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CaseWarehouseManagementAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230214221337_InitMigrations")]
-    partial class InitMigrations
+    [Migration("20230215052424_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,13 +33,16 @@ namespace CaseWarehouseManagementAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
-                    b.Property<bool>("IsInStock")
-                        .HasColumnType("bit");
+                    b.Property<int?>("AmountOf")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Stock")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -57,9 +60,6 @@ namespace CaseWarehouseManagementAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<bool?>("IsInStock")
                         .HasColumnType("bit");
 
@@ -68,9 +68,6 @@ namespace CaseWarehouseManagementAPI.Migrations
 
                     b.Property<float?>("Price")
                         .HasColumnType("real");
-
-                    b.Property<int?>("Quantity")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using CaseWarehouseManagementAPI.Models;
+using System.ComponentModel;
 
 namespace CaseWarehouseManagementAPI.DTO
 {
@@ -6,6 +7,7 @@ namespace CaseWarehouseManagementAPI.DTO
     {
         public int? Id { get; set; }
         public string? Name { get; set; }
-        public Boolean IsInStock { get; set; }
+        public int? AmountOf { get; set; }
+
     }
 }

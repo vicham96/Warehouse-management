@@ -30,13 +30,16 @@ namespace CaseWarehouseManagementAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
-                    b.Property<bool>("IsInStock")
-                        .HasColumnType("bit");
+                    b.Property<int?>("AmountOf")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Stock")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -54,9 +57,6 @@ namespace CaseWarehouseManagementAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<bool?>("IsInStock")
                         .HasColumnType("bit");
 
@@ -65,9 +65,6 @@ namespace CaseWarehouseManagementAPI.Migrations
 
                     b.Property<float?>("Price")
                         .HasColumnType("real");
-
-                    b.Property<int?>("Quantity")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

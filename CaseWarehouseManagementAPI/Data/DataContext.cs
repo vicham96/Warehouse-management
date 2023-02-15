@@ -11,11 +11,13 @@ namespace CaseWarehouseManagementAPI.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Article> Articles { get; set; }
 
+        /*
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>()
                 .Property(b => b.CreatedDate)
                 .HasDefaultValueSql("getdate()");
         }
+        */
     }
 }

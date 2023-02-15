@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using CaseWarehouseManagementAPI.Data;
 using CaseWarehouseManagementAPI.Data.RepoImpl;
 using CaseWarehouseManagementAPI.Data.Repositories;

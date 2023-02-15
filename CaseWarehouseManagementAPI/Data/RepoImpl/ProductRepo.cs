@@ -26,7 +26,7 @@ namespace CaseWarehouseManagementAPI.Data.RepoImpl
         {
             return _context.Products
                 .Include(p => p.Articles)
-                .Where(p => p.Articles.Any(a => a.IsInStock))
+                .Where(p => p.Articles.Any(a => a.Stock > 0))
                 .ToList();
         }
 
