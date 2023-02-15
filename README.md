@@ -3,7 +3,10 @@ Prerequisite:
 1. Entity core framework
 2. SQL Server Management
 3. Visual Studio
-##Set up database
+
+
+## Set up database
+
 1. Run a local, dockerized version of a sql server by typing the following command:
 `docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=MyPass@word" -e "MSSQL_PID=Express" -p 1433:1433 -d --name=sql mcr.microsoft.com/mssql/server:latest`
 2. After the dockerized container has run, clone and open the project
@@ -12,3 +15,4 @@ Prerequisite:
 `username = sa`
 `password = MyPass@word`
 5. Now run the application from Visual Studio
+6. It is possible to test the APIs from the browser now
