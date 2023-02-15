@@ -1,5 +1,6 @@
 ﻿using CaseWarehouseManagementAPI.Data.Repositories;
 using CaseWarehouseManagementAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CaseWarehouseManagementAPI.Data.RepoImpl
 {
@@ -18,7 +19,10 @@ namespace CaseWarehouseManagementAPI.Data.RepoImpl
 
         public IEnumerable<Product> GetProducts()
         {
-            return _context.Products.ToList();
+            return _context.Products
+                .Include(p => p.Articles)
+                .Where(p => p.Articles.Any(a => a.IsInStock))
+                .ToList();
         }
     }
 }

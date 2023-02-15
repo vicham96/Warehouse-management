@@ -8,5 +8,6 @@ namespace CaseWarehouseManagementAPI.Models
         public string? Name { get; set; }
         [DefaultValue(true)]
         public Boolean IsInStock { get; set; }
+
     }
 }

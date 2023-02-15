@@ -20,13 +20,9 @@ namespace CaseWarehouseManagementAPI.Controllers
         }
         // GET: api/<WarehouseController>
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] int pageSize, [FromQuery] int pageIndex)
+        public async Task<IActionResult> Get()
         {
-            if (pageSize > 0 && pageIndex > 0)
-            {
-                
-            }
-            return Ok(_service.GetProductsInStock(pageSize, pageIndex)); 
+            return Ok(_service.GetProductsInStock()); 
         }
 
         // GET api/<WarehouseController>/5
