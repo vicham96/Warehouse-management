@@ -63,7 +63,7 @@ namespace CaseWarehouseManagementAPI.Controllers
 
         }
 
-        // DELETE api/<WarehouseController>/5
+        // DELETE api/Products/5
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {

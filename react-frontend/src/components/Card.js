@@ -1,26 +1,29 @@
-function DetailedProduct(props) {
+import { useNavigate } from 'react-router-dom';
+import { baseAPIURL } from "../Constants";
+import axios from "axios";
+
+function ProductCard(props) {
+    const navigate = useNavigate();
     return (
-        <Card sx={{ maxWidth: 345 }}>
-        <CardActionArea>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {props.title}
-            </Typography>
-            <Typography>
-            {props.quantity}
-            </Typography>
-            <Typography>
-            {props.price} $$
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary">
-            Share
-          </Button>
-        </CardActions>
-      </Card>
+        <div class="card-body">
+            {props.title}
+            {props.price}
+
+            {props.articles.map(article => 
+            <ul>
+                <li>{article.name} : {article.amountOf}</li>
+            </ul>)}
+            <button onClick = {()=> {
+        axios
+        .delete(`${baseAPIURL}/${props.id}`)
+        .then(() => {
+          alert("Product deleted!");
+          navigate('/')
+        })}}>Delete product</button>
+        <button  onClick={()=> navigate('/detailed-view/' + props.id)}>Click here to see the detailed view</button>
+
+      </div>
     );
   }
   
-  export default DetailedProduct;
+  export default ProductCard;
