@@ -8,5 +8,7 @@ namespace CaseWarehouseManagementAPI.ServiceLayer
     {
         IEnumerable<ProductReadDTO> GetProductsInStock();
         ProductReadDTO GetProduct(int productId);
+        ProductReadDTO CreateProduct(ProductCreateDTO productDTO);
+        void SellProduct(int productId);
     }
 }

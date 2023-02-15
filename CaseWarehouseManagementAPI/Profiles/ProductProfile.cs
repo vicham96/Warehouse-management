@@ -11,6 +11,7 @@ namespace CaseWarehouseManagementAPI.Profiles
             CreateMap<IEnumerable<Article>, IEnumerable<ArticleReadDTO>>();
             CreateMap<Article, ArticleReadDTO>();
             CreateMap<Product, ProductReadDTO>();
+            CreateMap<ProductCreateDTO, Product>(); 
         }
     }
 }

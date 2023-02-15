@@ -9,18 +9,5 @@
         public List<Article>? Articles { get; set; }
         public Boolean? IsInStock { get; set; }
         public DateTime? CreatedDate { get; set; }
-
-        /*
-
-        public Boolean IsProductInStock()
-        {
-            if (Articles.Count > 0)
-            {
-                return Articles.Find(a => !a.IsInStock) == null;
-            }
-            return false;
-
-        }
-        */
     }
 }

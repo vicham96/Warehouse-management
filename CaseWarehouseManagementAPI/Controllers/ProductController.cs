@@ -1,8 +1,10 @@
-﻿using CaseWarehouseManagementAPI.Data.Repositories;
+﻿using System.Reflection.Metadata;
+using CaseWarehouseManagementAPI.Data.Repositories;
 using CaseWarehouseManagementAPI.DTO;
 using CaseWarehouseManagementAPI.Models;
 using CaseWarehouseManagementAPI.ServiceLayer;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.IIS.Core;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -18,44 +20,62 @@ namespace CaseWarehouseManagementAPI.Controllers
         {
             _service = service; 
         }
-        // GET: api/<WarehouseController>
+        // GET: api/Products
         [HttpGet]
         public async Task<IActionResult> Get()
         {
             return Ok(_service.GetProductsInStock()); 
         }
 
-        // GET api/<WarehouseController>/5
+        // GET api/Products/5
         [HttpGet("{id}")]
-        public ProductReadDTO GetDetailedProduct(int id)
+        public ActionResult<ProductReadDTO> GetDetailedProduct(int id) 
         {
-            return _service.GetProduct(id); 
-        }
-
-        // POST api/<WarehouseController>
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Product newProduct)
-        {
-            if (newProduct != null)
+            try
             {
-                return CreatedAtAction(
-                    nameof(GetDetailedProduct), 
-                    new { id = newProduct.Id },
-                    newProduct);
+                var product = _service.GetProduct(id);
+                if (product == null)
+                {
+                    return NotFound();
+                }
+
+                return product;
             }
-            return BadRequest(new ArgumentNullException());
+            catch (ArgumentNullException e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
-        // PUT api/<WarehouseController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // POST api/Products
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] ProductCreateDTO productCreateDto)
         {
+            try
+            {
+                var createdProduct = _service.CreateProduct(productCreateDto);
+                return CreatedAtRoute(nameof(GetDetailedProduct), new { createdProduct.Id }, createdProduct);
+            }
+            catch (ArgumentNullException e)
+            {
+                return BadRequest(e.Message);
+            }
+
         }
 
         // DELETE api/<WarehouseController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
+            try
+            { 
+                _service.SellProduct(id);
+                return NoContent();
+            }
+            catch (ArgumentNullException e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }
